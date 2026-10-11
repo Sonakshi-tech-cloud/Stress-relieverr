@@ -1,17 +1,66 @@
-<h1>Hello Calculator</h1>
-< ! DOCTYPE html>
-< head > 
-      <meta charsetu"UTF-8"
-      <meta name="viewport" content="width=device-width,  initial-scale=1
-      <title>Manyname Calculator</title>
-      <style>
-           body {
-                  font-family:  Arial,  sans-serif;
-                  display:  flex:
-                  justify-content: center;
-                  align-items:  center;
-                  height: 150vh;
-                  background-color:  #f4f4f6
-                }
-            .calculator {
-                back
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h2>Multilingual Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <br>
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+        <br>
+        <button onclick="calculate()">Calculate</button>
+        <h3 id="result">Result: </h3>
+    </div>
+
+    <script>
+        function calculate() {
+            let n1 = parseFloat(document.getElementById('num1').value) || 0;
+            let n2 = parseFloat(document.getElementById('num2').value) || 0;
+            let lang = document.getElementById('languageSelect').value;
+            let sum = n1 + n2;
+
+            let message = "Result: " + sum;
+            if (lang === 'es') {
+                message = "Resultado: " + sum;
+            } else if (lang === 'fr') {
+                message = "Résultat: " + sum;
+            }
+
+            document.getElementById('result').innerText = message;
+        }
+    </script>
+
+</body>
+</html>
+
